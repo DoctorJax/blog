@@ -18,3 +18,12 @@ fi
 git commit -m "$msg"
 
 git push origin main
+
+# Updating blog repo too
+cd ..
+
+git add .
+
+git commit -m "$msg"
+
+git push origin main
