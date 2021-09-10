@@ -19,7 +19,7 @@ params:
     keywords: [Blog, Portfolio, PaperMod]
     author: DoctorJax
     # author: ["Me", "You"] # multiple authors
-    images: ["<link or path of image for opengraph, twitter-cards>"]
+    images: ["https://raw.githubusercontent.com/DoctorJax/blog/main/hugoprofilepicture.png"]
     DateFormat: "January 2, 2006"
     defaultTheme: dark # dark, light
     disableThemeToggle: true
@@ -54,7 +54,7 @@ params:
         enabled: true # needs to be explicitly set
         title: Technological Magic
         subtitle: "Welcome to my personal blog/wiki. This will be used to document how I do things so I don't forget them myself."
-        imageUrl: "https://cdn.discordapp.com/attachments/539173527639687198/884306584484855818/hugoprofilepicture.png"
+        imageUrl: "https://raw.githubusercontent.com/DoctorJax/blog/main/hugoprofilepicture.png"
         imageWidth: 200
         imageHeight: 200
         imageTitle: My profile picture
@@ -71,7 +71,7 @@ params:
 
     socialIcons:
         - name: youtube
-          url: "https://youtube.com/"
+          url: "https://www.youtube.com/channel/UCxhb0PhCUodcsxpYjJjq6vA"
         - name: github
           url: "https://github.com/DoctorJax"
 
