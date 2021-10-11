@@ -8,7 +8,7 @@ TocOpen: false
 hidemeta: false
 comments: false
 ---
-If you want my dotfiles or you're me and setting up a new computer, then this might be helpful.
+If you want my dotfiles, or you're me and setting up a new computer, then this might be helpful.
 
 # Packages
 
@@ -31,7 +31,7 @@ zsh zsh-syntax-highlighting zsh-autosuggestions \
 # Terminal
 alacritty \
 # Extras
-ranger cmus nemo neofetch pfetch lolcat nerd-fonts-complete htop \
+ranger cmus nemo neofetch pfetch lolcat nerd-fonts-complete htop keepassxc yubioath-desktop \
 # Text Editors
 vim neovim emacs libreoffice \
 # Browsers
@@ -40,14 +40,22 @@ brave-bin firefox \
 # Rust and cargo should get installed with alacritty
 cargo install exa ripgrep du-dust
 ```
+
 ### Starship Prompt
 Here's their [website](https://starship.rs/guide/), but I'm going to have this command here so I can easily copy and paste.
 ```zsh
 sh -c "$(curl -fsSL https://starship.rs/install.sh)"
 ```
 
+### Vim Plugins
+I use [vim-plug](https://github.com/junegunn/vim-plug) for plugins and use Neovim as my text editor of choice, so to be able to keep copying and pasting, here's the needed command to install it.
+```zsh
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+```
+
 # Cloning My Git Repo
-My git repo has all my dotfiles so that I can easily setup a new computer if needed. 
+My git repo has all my dotfiles so that I can easily set up a new computer if needed. 
 ```zsh
 git clone https://github.com/DoctorJax/.dotfiles
 cd .dotfiles
@@ -61,6 +69,8 @@ ln -sf ~/.dotfiles/.zshrc ~
 
 ln -sf ~/.dotfiles/.config/* ~/.config
 ln -sf ~/.dotfiles/.xmonad ~
+
+ln -sf ~/.dotfiles/.emacs.d ~
 
 cd ~
 ```
