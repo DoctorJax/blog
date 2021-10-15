@@ -30,10 +30,14 @@ awesome awesome-freedesktop-git rofi picom python-pywal nitrogen \
 zsh zsh-syntax-highlighting zsh-autosuggestions \
 # Terminal
 alacritty \
-# Extras
-ranger cmus nemo neofetch pfetch lolcat nerd-fonts-complete htop keepassxc yubioath-desktop \
+# Terminal Extras
+ranger cmus nemo neofetch pfetch lolcat nerd-fonts-complete htop \
+# Password Manager Stuff
+keepassxc yubioath-desktop \
 # Text Editors
 vim neovim emacs libreoffice \
+# Spell Checking Support
+hunspell hunspell-en hyphen hyphen-en libmythes mythes-en \
 # Browsers
 brave-bin firefox \
 

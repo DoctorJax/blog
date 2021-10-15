@@ -52,7 +52,7 @@ params:
     # profile-mode
     profileMode:
         enabled: true # needs to be explicitly set
-        title: Technological Magic
+        title: DoctorJax
         subtitle: "Welcome to my personal blog/wiki. This will be used to document how I do things so I don't forget them myself."
         imageUrl: "https://raw.githubusercontent.com/DoctorJax/blog/main/hugoprofilepicture.png"
         imageWidth: 200
