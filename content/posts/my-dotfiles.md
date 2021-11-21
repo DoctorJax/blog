@@ -10,6 +10,16 @@ comments: false
 ---
 If you want my dotfiles, or you're me and setting up a new computer, then this might be helpful.
 
+# Ansible Pull
+
+So, I setup an ansible repository for my dotfiles that allows me to just do an ansible pull to set almost everything up after installation. 
+```zsh
+# Dotfiles
+sudo ansible-pull -U https://github.com/DoctorJax/.ansible-dotfiles.git
+# Server Dotfiles
+sudo ansible-pull -U https://github.com/DoctorJax/.ansible-serverdots.git
+```
+
 # Packages
 
 My dotfiles kinda revolve around Arch Linux, but that doesn't mean they don't work on other distros. However, I'm currently only going to give a guide for Arch Linux because I'm lazy.
