@@ -17,7 +17,7 @@ fi
 
 git commit -m "$msg"
 
-git push origin main
+git push
 
 # Updating blog repo too
 cd ..
@@ -26,4 +26,4 @@ git add .
 
 git commit -m "$msg"
 
-git push origin main
+git push
