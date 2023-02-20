@@ -1,5 +1,5 @@
 baseURL: "https://doctorjax.github.io/"
-title: Technological Magic
+title: DoctorJax
 paginate: 5
 theme: PaperMod
 
@@ -14,7 +14,7 @@ minify:
 
 params:
     env: production # to enable google analytics, opengraph, twitter-cards and schema.
-    title: Technological Magic
+    title: DoctorJax
     description: "This is a website made to mess around with Hugo as well as document certain things"
     keywords: [Blog, Portfolio, PaperMod]
     author: DoctorJax
@@ -47,7 +47,7 @@ params:
         safari_pinned_tab: "<link / abs url>"
 
     label:
-        text: "Technological Magic"
+        text: "DoctorJax"
 
     # profile-mode
     profileMode:
@@ -71,7 +71,7 @@ params:
 
     socialIcons:
         - name: youtube
-          url: "https://www.youtube.com/channel/UCxhb0PhCUodcsxpYjJjq6vA"
+          url: "https://www.youtube.com/@doctorjaxplays"
         - name: github
           url: "https://github.com/DoctorJax"
 
