@@ -58,17 +58,16 @@ params:
         imageWidth: 200
         imageHeight: 200
         imageTitle: My profile picture
+        buttons:
+            - name: youtube
+              url: "https://www.youtube.com/@doctorjaxplays"
+            - name: github
+              url: "https://github.com/DoctorJax"
 
     # home-info mode
     homeInfoParams:
         Title: "Hi there \U0001F44B"
         Content: Welcome to my blog
-
-    socialIcons:
-        - name: youtube
-          url: "https://www.youtube.com/@doctorjaxplays"
-        - name: github
-          url: "https://github.com/DoctorJax"
 
     cover:
         hidden: true # hide everywhere but not in structured data
