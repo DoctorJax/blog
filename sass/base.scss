@@ -1,0 +1,78 @@
+body, header, nav, main, footer, img, h1, h3, ul, iframe, .navlogo, .container {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body {
+    background-color: #1A1B26;
+    color: #F2F2F2;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: sans-serif;
+    font-size: 1.25em;
+}
+
+nav {
+    background-color: #13141C;
+    border: 1px solid #252630;
+    border-radius: 10px;
+    padding: 0.5em 1em;
+    margin: 0.5em 2em;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav a {
+    text-decoration: none;
+    color: #00BCC3;
+}
+
+.container {
+    padding: 1% 8%;
+}
+
+.container a {
+    text-decoration: none;
+    color: #8080E8;
+    font-style: italic;
+}
+
+.title {
+  color: #BB9AF7;
+}
+
+.subtitle {
+  color: #7CCDFC;
+}
+
+// CODE BLOCKS
+pre {
+  padding: 0.5rem;
+  overflow: auto;
+  border-radius: 10px;
+}
+// The line numbers already provide some kind of left/right padding
+pre[data-linenos] {
+  padding: 1rem 0;
+}
+pre table td {
+  padding: 0;
+}
+// The line number cells
+pre table td:nth-of-type(1) {
+  text-align: center;
+  user-select: none;
+}
+pre mark {
+  // If you want your highlights to take the full width.
+  display: block;
+  // The default background colour of a mark is bright yellow
+  background-color: rgba(254, 252, 232, 0.9);
+}
+pre table {
+  width: 100%;
+  border-collapse: collapse;
+}
+// END CODE BLOCKS
