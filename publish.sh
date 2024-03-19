@@ -4,7 +4,7 @@ set -e
 
 printf "\n Updating and publishing site to GitHub \n"
 
-hugo
+zola build
 
 cd public
 
