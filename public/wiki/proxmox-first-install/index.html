@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>putering.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/base.css">
+</head>
+
+<body>
+  <nav>
+      <a href="https://putering.com">putering.com</a>
+      <a href="https://putering.com/wiki/">wiki</a>
+  </nav>
+
+  <section class="section">
+    <div class="container">
+      
+<h1 class="title">
+  Proxmox First Install
+</h1>
+<p class="subtitle"><strong>2021-09-07</strong></p>
+<p>Proxmox is a great Linux based hypervisor. It's Debian based and is really easy to set up. </p>
+<h1 id="no-subscription-repo">No-Subscription Repo</h1>
+<p>While by default you need to pay for Promox to get updates, you can enable the non-subscription repo to get updates anyway. To do so, you could follow the <a href="https://pve.proxmox.com/wiki/Package_Repositories#sysadmin_no_subscription_repo">Proxmox wiki</a>, or just add this line to your <code>/etc/apt/sources.list</code>: </p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>deb http://download.proxmox.com/debian/pve bullseye pve-no-subscription
+</span></code></pre>
+<h1 id="updating">Updating</h1>
+<p>When updating, do <strong>NOT</strong> just <code>apt update &amp;&amp; apt upgrade</code>, it will break things. Instead, make sure to do <code>apt update &amp;&amp; apt dist-upgrade</code>. </p>
+<h1 id="lxc-containers">LXC Containers</h1>
+<p>LXC containers are great. Pretty much everything running on my Proxmox right now is in an LXC container. You can get templates for certain services, or just use a base template and put whatever you want on them. I usually use either the Ubuntu Server template or the OpenSUSE template. Either way, I like to add my own user instead of just using root for everything. Call me paranoid, but security is security. </p>
+<h3 id="updating-and-installing-stuff">Updating and installing stuff</h3>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span># Ubuntu Server
+</span><span>apt update &amp;&amp; apt upgrade -y
+</span><span>
+</span><span>apt install sudo vim neofetch htop git wget zsh tmux
+</span><span>
+</span><span># OpenSUSE
+</span><span>zypper refresh &amp;&amp; zypper update
+</span><span>
+</span><span>zypper install sudo vim neofetch htop git wget zsh tmux
+</span></code></pre>
+<h3 id="user-setup">User setup</h3>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span># Adding a new user
+</span><span>useradd -m -g users -G sudo -s /bin/bash &lt;user&gt;
+</span><span>
+</span><span># Don&#39;t forget to set the password
+</span><span>passwd &lt;user&gt;
+</span></code></pre>
+
+
+    </div>
+  </section>
+</body>
+
+</html>

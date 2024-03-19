@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>putering.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/base.css">
+</head>
+
+<body>
+  <nav>
+      <a href="https://putering.com">putering.com</a>
+      <a href="https://putering.com/wiki/">wiki</a>
+  </nav>
+
+  <section class="section">
+    <div class="container">
+      
+<h1 class="title">
+  My Dotfiles (Outdated)
+</h1>
+<p class="subtitle"><strong>2021-09-10</strong></p>
+<p>If you want my dotfiles, or you're me and setting up a new computer, then this might be helpful.</p>
+<h1 id="ansible-pull">Ansible Pull</h1>
+<p>So, I setup an ansible repository for my dotfiles that allows me to just do an ansible pull to set almost everything up after installation. </p>
+<pre data-lang="zsh" style="background-color:#2b303b;color:#c0c5ce;" class="language-zsh "><code class="language-zsh" data-lang="zsh"><span style="color:#65737e;"># Dotfiles
+</span><span style="color:#bf616a;">sudo</span><span> ansible-pull</span><span style="color:#bf616a;"> -U</span><span> https://github.com/DoctorJax/.ansible-dotfiles.git
+</span><span style="color:#65737e;"># Server Dotfiles
+</span><span style="color:#bf616a;">sudo</span><span> ansible-pull</span><span style="color:#bf616a;"> -U</span><span> https://github.com/DoctorJax/.ansible-serverdots.git
+</span></code></pre>
+<h1 id="packages">Packages</h1>
+<p>My dotfiles kinda revolve around Arch Linux, but that doesn't mean they don't work on other distros. However, I'm currently only going to give a guide for Arch Linux because I'm lazy.</p>
+<h3 id="paru-aur-helper">Paru AUR Helper</h3>
+<pre data-lang="zsh" style="background-color:#2b303b;color:#c0c5ce;" class="language-zsh "><code class="language-zsh" data-lang="zsh"><span style="color:#bf616a;">sudo</span><span> pacman</span><span style="color:#bf616a;"> -S --needed</span><span> base-devel
+</span><span style="color:#bf616a;">git</span><span> clone https://aur.archlinux.org/paru.git
+</span><span style="color:#96b5b4;">cd</span><span> paru
+</span><span style="color:#bf616a;">makepkg -si
+</span></code></pre>
+<h3 id="needed-recommended-packages">Needed &amp; Recommended Packages</h3>
+<pre data-lang="zsh" style="background-color:#2b303b;color:#c0c5ce;" class="language-zsh "><code class="language-zsh" data-lang="zsh"><span style="color:#bf616a;">paru -S </span><span>\
+</span><span style="color:#65737e;"># Window Manager Stuff
+</span><span style="color:#bf616a;">awesome</span><span> awesome-freedesktop-git rofi picom python-pywal nitrogen \
+</span><span style="color:#65737e;"># Zsh
+</span><span style="color:#bf616a;">zsh</span><span> zsh-syntax-highlighting zsh-autosuggestions \
+</span><span style="color:#65737e;"># Terminal
+</span><span style="color:#bf616a;">alacritty </span><span>\
+</span><span style="color:#65737e;"># Terminal Extras
+</span><span style="color:#bf616a;">ranger</span><span> cmus nemo neofetch pfetch lolcat nerd-fonts-complete htop \
+</span><span style="color:#65737e;"># Password Manager Stuff
+</span><span style="color:#bf616a;">keepassxc</span><span> yubioath-desktop \
+</span><span style="color:#65737e;"># Text Editors
+</span><span style="color:#bf616a;">vim</span><span> neovim emacs libreoffice \
+</span><span style="color:#65737e;"># Spell Checking Support
+</span><span style="color:#bf616a;">hunspell</span><span> hunspell-en hyphen hyphen-en libmythes mythes-en \
+</span><span style="color:#65737e;"># Browsers
+</span><span style="color:#bf616a;">brave-bin</span><span> firefox \
+</span><span>
+</span><span style="color:#65737e;"># Rust and cargo should get installed with alacritty
+</span><span style="color:#bf616a;">cargo</span><span> install exa ripgrep du-dust
+</span></code></pre>
+<h3 id="starship-prompt">Starship Prompt</h3>
+<p>Here's their <a href="https://starship.rs/guide/">website</a>, but I'm going to have this command here so I can easily copy and paste.</p>
+<pre data-lang="zsh" style="background-color:#2b303b;color:#c0c5ce;" class="language-zsh "><code class="language-zsh" data-lang="zsh"><span style="color:#bf616a;">sh -c </span><span>&quot;$</span><span style="color:#a3be8c;">(</span><span style="color:#bf616a;">curl -fsSL</span><span style="color:#a3be8c;"> https://starship.rs/install.sh)</span><span>&quot;
+</span></code></pre>
+<h3 id="vim-plugins">Vim Plugins</h3>
+<p>I use <a href="https://github.com/junegunn/vim-plug">vim-plug</a> for plugins and use Neovim as my text editor of choice, so to be able to keep copying and pasting, here's the needed command to install it.</p>
+<pre data-lang="zsh" style="background-color:#2b303b;color:#c0c5ce;" class="language-zsh "><code class="language-zsh" data-lang="zsh"><span style="color:#bf616a;">sh -c </span><span>&#39;</span><span style="color:#a3be8c;">curl -fLo &quot;${XDG_DATA_HOME:-$HOME/.local/share}&quot;/nvim/site/autoload/plug.vim --create-dirs \
+</span><span style="color:#a3be8c;">       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim</span><span>&#39;
+</span></code></pre>
+<h1 id="cloning-my-git-repo">Cloning My Git Repo</h1>
+<p>My git repo has all my dotfiles so that I can easily set up a new computer if needed. </p>
+<pre data-lang="zsh" style="background-color:#2b303b;color:#c0c5ce;" class="language-zsh "><code class="language-zsh" data-lang="zsh"><span style="color:#bf616a;">git</span><span> clone https://github.com/DoctorJax/.dotfiles
+</span><span style="color:#96b5b4;">cd</span><span> .dotfiles
+</span><span>
+</span><span style="color:#65737e;"># Linking things
+</span><span style="color:#bf616a;">ln -sf ~</span><span>/.dotfiles/.local/bin </span><span style="color:#bf616a;">~</span><span>/.local
+</span><span>
+</span><span style="color:#bf616a;">ln -sf ~</span><span>/.dotfiles/.aliasrc </span><span style="color:#bf616a;">~
+</span><span style="color:#bf616a;">ln -sf ~</span><span>/.dotfiles/.bashrc </span><span style="color:#bf616a;">~
+</span><span style="color:#bf616a;">ln -sf ~</span><span>/.dotfiles/.zshrc </span><span style="color:#bf616a;">~
+</span><span>
+</span><span style="color:#bf616a;">ln -sf ~</span><span>/.dotfiles/.config/* </span><span style="color:#bf616a;">~</span><span>/.config
+</span><span style="color:#bf616a;">ln -sf ~</span><span>/.dotfiles/.xmonad </span><span style="color:#bf616a;">~
+</span><span>
+</span><span style="color:#bf616a;">ln -sf ~</span><span>/.dotfiles/.emacs.d </span><span style="color:#bf616a;">~
+</span><span>
+</span><span style="color:#96b5b4;">cd </span><span style="color:#bf616a;">~
+</span></code></pre>
+<p>I use DistroTube's wallpapers so here's <a href="https://gitlab.com/dwt1/wallpapers">his repo</a>:</p>
+<pre data-lang="zsh" style="background-color:#2b303b;color:#c0c5ce;" class="language-zsh "><code class="language-zsh" data-lang="zsh"><span style="color:#bf616a;">git</span><span> clone https://gitlab.com/dwt1/wallpapers
+</span></code></pre>
+<p>I'm pretty sure this is everything that I would need to get things almost exactly like I have them now. I'm sure that some things will still need to be installed and that configs may need to be fixed, but this should get you pretty close.</p>
+
+
+    </div>
+  </section>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>putering.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/base.css">
+</head>
+
+<body>
+  <nav>
+      <a href="https://putering.com">putering.com</a>
+      <a href="https://putering.com/wiki/">wiki</a>
+  </nav>
+
+  <section class="section">
+    <div class="container">
+      
+<h1 class="title">
+  Hugo Is Interesting (Outdated; Using Zola Now)
+</h1>
+<p class="subtitle"><strong>2021-08-14</strong></p>
+<p>So, I wanted a way to create a wiki/blog so that I could document all of the stuff that I do inside of my homelab, just in case I break something and need to fix it. </p>
+<h1 id="why-i-didn-t-choose-wordpress">Why I Didn't Choose WordPress</h1>
+<p>I looked at WordPress first and while it could have done what I wanted, I decided I wanted something that I didn't host so if my server goes down I can still access it. Plus, I didn't want to have to worry about constantly updating WordPress to avoid possible security vulnerabilities. Now, you might say that I could have hosted WordPress on a VPS or something, but ya see, that requires money (And my budget is <em>very</em> tight).</p>
+<h1 id="github-pages">Github Pages</h1>
+<p>When looking on <a href="https://gohugo.io/">Hugo's website</a>, I saw that they had an option to host on GitHub. However, it looked a little complicated and I had no clue where to put the file it wanted me to create, so to YouTube I went. Found a <a href="https://www.youtube.com/watch?v=LIFvgrRxdt4">video by The Simple Engineer</a> that did exactly what I wanted. I simply followed the steps in the video and BAM, I now got a website hosted in GitHub that I can easily access no matter what. All I have to do is do a <code>git commit -am &quot;message&quot; &amp;&amp; git push</code> and then everything is published. </p>
+<h1 id="papermod">PaperMod</h1>
+<p>Once I had hugo setup, I had to find a good theme. Took a while, but I finally found <a href="https://adityatelange.github.io/hugo-PaperMod/">PaperMod</a>. All I did was go to the demo which had an installation page, <code>git clone</code> it, and then copy the sample <code>config.yml</code>. Now of course I changed it up some to better fit my needs, but that's pretty much it.</p>
+
+
+    </div>
+  </section>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>putering.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/base.css">
+</head>
+
+<body>
+  <nav>
+      <a href="https://putering.com">putering.com</a>
+      <a href="https://putering.com/wiki/">wiki</a>
+  </nav>
+
+  <section class="section">
+    <div class="container">
+      
+<h1 class="title">
+  Xorg Tweaks
+</h1>
+<p class="subtitle"><strong>2021-10-15</strong></p>
+<p>There are some things in Xorg that I specifically like to set to better fit my needs. This is a list of my current settings that I like. </p>
+<h1 id="disabling-mouse-acceleration">Disabling Mouse Acceleration</h1>
+<p>One of the things I dislike is mouse acceleration. I like having a high mouse sensitivity, and having mouse acceleration on adaptive just slows it down and makes mouse movements inconsistent. At some point I was looking into how to turn it off, and then later I forgot where I put it because it was in some odd file besides what everyone else was saying.
+So to fix mouse acceleration and have it exactly like my current setup, the settings are in <code>/usr/share/X11/xorg.conf.d/95-mouse-accel.conf</code>:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>Section &quot;InputClass&quot;
+</span><span>    Indentifier &quot;My Mouse&quot;
+</span><span>    Driver &quot;libinput&quot;
+</span><span>    MatchIsPointer &quot;yes&quot;
+</span><span>    Option &quot;AccelProfile&quot; &quot;flat&quot;
+</span><span>EndSection
+</span></code></pre>
+<h1 id="changing-key-repeat-timing">Changing Key Repeat Timing</h1>
+<p>Another thing that I am used to from my current setup is the key repeat timings. It's nice to be able to hold down backspace and half the page be gone in a second. Currently, I have it being set in a script that is run every time I run awesomeWM, but really it's just set with one command:</p>
+<pre data-lang="zsh" style="background-color:#2b303b;color:#c0c5ce;" class="language-zsh "><code class="language-zsh" data-lang="zsh"><span style="color:#bf616a;">xset</span><span> r rate 660 75
+</span></code></pre>
+<h1 id="keeping-the-screen-awake">Keeping The Screen Awake</h1>
+<p>I hate it when my screen goes to sleep without me telling it do. Usually in a Desktop Environment, this setting is easy to change, but in a Window Manager, there is a bit more to it. Because I don't feel like editing Xorg config files, I just run commands in a script that is once again launched when awesomeWM starts. It's special enough that it gets its own script:</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#65737e;">#!/bin/bash
+</span><span>
+</span><span style="color:#bf616a;">xset</span><span> s 0 0
+</span><span>
+</span><span style="color:#bf616a;">xset</span><span> s noexpose
+</span><span>
+</span><span style="color:#bf616a;">xset</span><span> s noblank
+</span><span>
+</span><span style="color:#bf616a;">xset</span><span> s off
+</span><span>
+</span><span style="color:#bf616a;">xset</span><span> dpms 0 0 0
+</span><span>
+</span><span style="color:#bf616a;">xset -dpms
+</span></code></pre>
+
+
+    </div>
+  </section>
+</body>
+
+</html>

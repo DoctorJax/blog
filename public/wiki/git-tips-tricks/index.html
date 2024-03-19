@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>putering.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/base.css">
+</head>
+
+<body>
+  <nav>
+      <a href="https://putering.com">putering.com</a>
+      <a href="https://putering.com/wiki/">wiki</a>
+  </nav>
+
+  <section class="section">
+    <div class="container">
+      
+<h1 class="title">
+  Git Tips &amp; Tricks
+</h1>
+<p class="subtitle"><strong>2023-02-20</strong></p>
+<p>To reduce my need to Google, gonna add some tips and tricks for the <code>git</code> command.</p>
+<h1 id="git-bare-repo">Git Bare Repo</h1>
+<p>So, a while back I made a git bare repo for my dotfiles in my home folder. Following a <a href="https://www.youtube.com/watch?v=tBoLDpTWVOM">DistroTube</a> video, the setup was really simple, but I figured I'd put it here just in case.</p>
+<h3 id="creation">Creation</h3>
+<p><strong>Create it with this:</strong> </p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">git</span><span> init</span><span style="color:#bf616a;"> --bare </span><span>$</span><span style="color:#bf616a;">HOME</span><span>/dotfiles
+</span></code></pre>
+<p><strong>Put this in your bashrc:</strong></p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#96b5b4;">alias </span><span style="color:#8fa1b3;">dotfiles</span><span>=&#39;</span><span style="color:#a3be8c;">/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME</span><span>&#39;
+</span></code></pre>
+<p><strong>Make sure to run this so it doesn't yell at you:</strong></p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">dotfiles</span><span> config</span><span style="color:#bf616a;"> --local</span><span> status.showUntrackedFiles no
+</span></code></pre>
+<h3 id="usage">Usage</h3>
+<p>Using the bare repo is really simple. To add files, you can run <code>dotfiles add /path/to/file</code> like any other git repo and then just do the normal <code>git commit</code> and <code>git push</code>, but make sure to replace <code>git</code> with <code>dotfiles</code> since that's your alias for the bare repo.</p>
+<h1 id="set-remote-url-after-ssh-key-setup">Set Remote URL After SSH Key Setup</h1>
+<p>A while back I set up an ssh key for GitHub so I wouldn't have to continue using an app password to push to my git repos. Of course, sometimes I run into repos that I haven't touched since I actually set up the SSH key, so it's still trying to use the https version instead. It's a quick fix:</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">git</span><span> remote set-url origin &lt;github-ssh-url&gt;
+</span></code></pre>
+
+
+    </div>
+  </section>
+</body>
+
+</html>
