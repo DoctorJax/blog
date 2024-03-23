@@ -3,7 +3,7 @@ title = "Proxmox Extras"
 date = 2024-03-23
 +++
 
-Been messing with Proxmox for the last day. Probably going to forget things soon lol
+Been messing with Proxmox for the last day. Probably going to forget things soon lol.
 
 # Frigate Coral TPU Passthrough For LXC
 Frigate's documentation links to a [Github discussion](https://github.com/blakeblackshear/frigate/discussions/1111) about what's needed to get the Google Coral TPU passed into an LXC container. Was pretty simple once I figured out what I was doing lol. This is added to the bottom of `/etc/pve/lxc/<ID>.conf` for the frigate lxc container:

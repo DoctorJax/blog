@@ -21,7 +21,7 @@
   Proxmox Extras
 </h1>
 <p class="subtitle"><strong>2024-03-23</strong></p>
-<p>Been messing with Proxmox for the last day. Probably going to forget things soon lol</p>
+<p>Been messing with Proxmox for the last day. Probably going to forget things soon lol.</p>
 <h1 id="frigate-coral-tpu-passthrough-for-lxc">Frigate Coral TPU Passthrough For LXC</h1>
 <p>Frigate's documentation links to a <a href="https://github.com/blakeblackshear/frigate/discussions/1111">Github discussion</a> about what's needed to get the Google Coral TPU passed into an LXC container. Was pretty simple once I figured out what I was doing lol. This is added to the bottom of <code>/etc/pve/lxc/&lt;ID&gt;.conf</code> for the frigate lxc container:</p>
 <pre data-lang="conf" style="background-color:#2b303b;color:#c0c5ce;" class="language-conf "><code class="language-conf" data-lang="conf"><span style="color:#bf616a;">lxc</span><span>.mount.entry: /dev/bus/usb/</span><span style="color:#d08770;">004</span><span>/ dev/bus/usb/</span><span style="color:#d08770;">004</span><span>/ </span><span style="color:#d08770;">none</span><span> bind,optional,create=dir </span><span style="color:#d08770;">0</span><span>,</span><span style="color:#d08770;">0
