@@ -22,6 +22,8 @@ cp -rf public/* ../doctorjax.github.io/
 
 cd ../doctorjax.github.io/
 
+git add .
+
 git commit -m "$msg"
 
 git push
