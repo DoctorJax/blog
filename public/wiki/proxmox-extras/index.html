@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>putering.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/base.css">
+</head>
+
+<body>
+  <nav>
+      <a href="https://putering.com">putering.com</a>
+      <a href="https://putering.com/wiki/">wiki</a>
+  </nav>
+
+  <section class="section">
+    <div class="container">
+      
+<h1 class="title">
+  Proxmox Extras
+</h1>
+<p class="subtitle"><strong>2024-03-23</strong></p>
+<p>Been messing with Proxmox for the last day. Probably going to forget things soon lol</p>
+<h1 id="frigate-coral-tpu-passthrough-for-lxc">Frigate Coral TPU Passthrough For LXC</h1>
+<p>Frigate's documentation links to a <a href="https://github.com/blakeblackshear/frigate/discussions/1111">Github discussion</a> about what's needed to get the Google Coral TPU passed into an LXC container. Was pretty simple once I figured out what I was doing lol. This is added to the bottom of <code>/etc/pve/lxc/&lt;ID&gt;.conf</code> for the frigate lxc container:</p>
+<pre data-lang="conf" style="background-color:#2b303b;color:#c0c5ce;" class="language-conf "><code class="language-conf" data-lang="conf"><span style="color:#bf616a;">lxc</span><span>.mount.entry: /dev/bus/usb/</span><span style="color:#d08770;">004</span><span>/ dev/bus/usb/</span><span style="color:#d08770;">004</span><span>/ </span><span style="color:#d08770;">none</span><span> bind,optional,create=dir </span><span style="color:#d08770;">0</span><span>,</span><span style="color:#d08770;">0
+</span><span style="color:#bf616a;">lxc</span><span>.cgroup2.devices.allow: c </span><span style="color:#d08770;">189</span><span>:* rwm
+</span><span style="color:#bf616a;">lxc</span><span>.apparmor.profile: unconfined
+</span><span style="color:#bf616a;">lxc</span><span>.cgroup2.devices.allow: a
+</span><span style="color:#bf616a;">lxc</span><span>.cap.drop: 
+</span><span style="color:#bf616a;">lxc</span><span>.mount.auto: cgroup:rw
+</span></code></pre>
+<h3 id="notes">Notes</h3>
+<p><code>/dev/bus/usb/&lt;BUSID&gt;</code> comes from <code>lsusb</code>. You can't go all the way down to <code>/dev/bus/usb/&lt;BUSID&gt;/&lt;USBID&gt;</code> because the coral is weird and finicky, so if you just do the first layer as a dir, you're good. 
+After that you can just continue with the <a href="https://docs.frigate.video/configuration/object_detectors#single-usb-coral">Frigate docs</a> to get the config working. If it's not working, you'll know, because Frigate will basically boot loop lol.</p>
+<h1 id="storage-directories">Storage Directories</h1>
+<p>So just plain ZFS type storage won't let you select backups, but if you create a zfs dataset and then mount it as a directory in Proxmox, it'll let you. Just make sure in <code>/etc/pve/storage.cfg</code> you set under the dirs you create:</p>
+<pre data-lang="conf" style="background-color:#2b303b;color:#c0c5ce;" class="language-conf "><code class="language-conf" data-lang="conf"><span style="color:#bf616a;">is_mountpoint </span><span style="color:#d08770;">1
+</span><span style="color:#bf616a;">mkdir </span><span style="color:#d08770;">0
+</span></code></pre>
+<p>This ensures that weird race conditions don't appear from PVE starting up before ZFS pools get mounted, causing PVE to create the directory and then the ZFS pool never getting mounted because the directory already exists. </p>
+<h1 id="lxc-vm-backups">LXC &amp; VM Backups</h1>
+<p>Backups are pretty easy to setup on Proxmox. Once you create your new ZFS dataset and have it mounted as a directory like I was talking about above, you can select &quot;backup&quot; as one of the contents. Once you do, you can then change the backup retention if you like. Under the backup tab, you can create a job, choose the VMs you want to backup, set a schedule, select the location, and how many you want to keep, and then you're done. You can either run it manually just to make sure it works, or wait for your schedule to take over and forget it exists until your storage is full 6 months later.</p>
+<h3 id="notes-1">Notes</h3>
+<p>Storage and backup tabs are under &quot;Datacenter&quot; not the individual nodes.</p>
+
+
+    </div>
+  </section>
+</body>
+
+</html>
